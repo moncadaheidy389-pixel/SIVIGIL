@@ -1,0 +1,20 @@
+* { box-sizing: border-box; }
+body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f8; color: #222; }
+header { background: #0b5394; color: #fff; padding: 20px 32px; }
+header h1 { margin: 0 0 4px; }
+header p { margin: 0; opacity: .9; }
+main { max-width: 1000px; margin: 24px auto; padding: 0 16px; }
+.busqueda { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap;
+            background: #fff; padding: 16px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+.busqueda label { display: flex; flex-direction: column; font-weight: bold; font-size: 14px; flex: 1; min-width: 200px; }
+.busqueda input { margin-top: 6px; padding: 10px; border: 1px solid #bbb; border-radius: 4px; font-size: 15px; }
+button { background: #0b5394; color: #fff; border: 0; padding: 11px 24px; border-radius: 4px; font-size: 15px; cursor: pointer; }
+button:hover { background: #073763; }
+.mensaje { padding: 12px 16px; border-radius: 4px; margin-top: 16px; }
+.error { background: #fdecea; color: #b71c1c; }
+.mensaje.info { background: #e8f1fb; color: #0b5394; }
+table { width: 100%; border-collapse: collapse; background: #fff; margin-top: 8px; font-size: 14px; }
+th, td { padding: 8px 10px; border-bottom: 1px solid #e0e0e0; text-align: left; }
+th { background: #0b5394; color: #fff; }
+tr:nth-child(even) td { background: #f8fafc; }
+footer { max-width: 1000px; margin: 32px auto; padding: 0 16px; font-size: 12px; color: #555; }
