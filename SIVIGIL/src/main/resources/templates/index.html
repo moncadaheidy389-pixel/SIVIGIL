@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIVIGILA Data</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+<header>
+    <h1>SIVIGILA Data</h1>
+    <p>Consulta de registros históricos SIVIGILA 2017 · Instituto Nacional de Salud</p>
+</header>
+
+<main>
+    <form th:action="@{/buscar}" method="get" class="busqueda">
+        <label>Evento
+            <input type="text" name="evento" th:value="${evento}" placeholder="Ej: dengue">
+        </label>
+        <label>Municipio
+            <input type="text" name="municipio" th:value="${municipio}" placeholder="Ej: cali">
+        </label>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <p class="mensaje error" th:if="${error}" th:text="${error}"></p>
+
+    <p class="mensaje info" th:if="${buscado and #lists.isEmpty(registros)}">
+        No se encontraron registros con los filtros ingresados.
+    </p>
+
+    <div th:if="${buscado and !#lists.isEmpty(registros)}">
+        <p class="info" th:text="'Mostrando ' + ${#lists.size(registros)} + ' registro(s) (máximo 100).'"></p>
+        <table>
+            <thead>
+            <tr>
+                <th>Cód. evento</th><th>Evento</th><th>Año</th><th>Semana</th>
+                <th>Cód. dpto</th><th>Municipio</th><th>Cód. mun</th><th>Casos</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="r : ${registros}">
+                <td th:text="${r.codEvento}"></td>
+                <td th:text="${r.nombre}"></td>
+                <td th:text="${r.ano}"></td>
+                <td th:text="${r.semana}"></td>
+                <td th:text="${r.codDepartamento}"></td>
+                <td th:text="${r.municipio}"></td>
+                <td th:text="${r.codMunicipio}"></td>
+                <td th:text="${r.conteoCasos}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<footer>
+    <p>Datos de 2017 (información histórica, no actual). Proyecto académico e informativo:
+        no reemplaza los sistemas oficiales ni ofrece diagnósticos.
+        Fuente: <a href="https://www.datos.gov.co/en/Salud-y-Protecci-nSocial/SIVIGILA-2017/84d4-vfax"
+                   target="_blank" rel="noopener">Datos Abiertos Colombia</a>.</p>
+</footer>
+</body>
+</html>
