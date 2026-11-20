@@ -15,7 +15,10 @@ public class SivigilaController {
     }
 
     // ===== PARTE DE CRISTIAN (no tocar, él la agrega aquí) =====
-
+@GetMapping
+    public List<RegistroSivigila> listarTodos() {
+        return servicio.obtenerTodos();
+    }
 
     // ===== PARTE DE GEIDY =====
     @GetMapping("/evento/{evento}")
